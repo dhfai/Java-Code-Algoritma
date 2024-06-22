@@ -1,0 +1,83 @@
+import java.io.*;
+public class queue_array
+{
+	private int maxsize;
+	private double [] queuearray;
+	private int front;
+	private int rear;
+	private int jumlah;
+	
+	public void inisiasi(int s)
+	{
+		maxsize = s;
+		queuearray = new double [maxsize];
+		front = rear = jumlah = 0;
+	}
+	public void enqueue(double data)
+	{
+		if (jumlah==maxsize)
+			System.out.println("Queue Penuh. "+data+" Tidak Bisa Masuk");
+		else 
+			{
+				//System.out.print(rear+" ");
+				queuearray[rear] = data;
+				rear = (rear+1)%maxsize;
+				jumlah++;
+				System.out.println(data +" Masuk ke Queue");
+			}
+	}
+	public double dequeue()
+	{
+		double temp;
+		if (jumlah==0)
+		{
+			System.out.println("Queue Sudah Kosong");
+			return(-1);
+		}
+		else 
+			{
+				temp = queuearray[front];
+				front = (front+1)%maxsize;
+				jumlah--;
+				System.out.println(temp + " Keluar dari Queue");
+				return (temp);
+			}
+	}
+	public void view()
+	{
+		System.out.print("Isi Queue: ");
+		if (jumlah > 0 && front < rear) //belum terjadi circular
+			for(int i=front; i<=rear; i++)
+				System.out.print(queuearray[i] + " ");
+		else if (jumlah >0 && rear <= front) //terjadi circular
+		{
+			for(int i=front; i<=maxsize-1; i++) //bagian depan
+				System.out.print(queuearray[i] + " ");
+			for(int i=0; i<rear; i++) //bagian belakang
+				System.out.print(queuearray[i] + " ");
+		}
+		System.out.println();
+	}
+	public static void main(String[] args)
+	{
+		queue_array queue = new queue_array();
+		queue.inisiasi(3);
+		queue.enqueue(2);
+		queue.enqueue(5);
+		queue.enqueue(3);
+		queue.enqueue(7);
+		queue.view();
+		queue.dequeue();
+		queue.dequeue();
+		queue.dequeue();
+		queue.dequeue();
+		queue.view();
+		queue.enqueue(8);
+		queue.enqueue(9);
+		queue.enqueue(7);
+		queue.enqueue(10);
+		queue.view();
+		queue.dequeue();
+		queue.view();
+	}
+}

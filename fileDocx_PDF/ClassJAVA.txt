@@ -1,0 +1,49 @@
+Class
+Class merupakan bagian dari turunan obyek yang berfungsi sebagai wadah atau cetakan untuk mendeskripsikan behavior/state yang didukung obyeknya. Behavior adalah tingkah laku yang dapat dilakukan oleh obyek. Behavior adalah kelakuan atau sifat dari obyek,  misalnya lampu bisa dimatikan atau dinyalakan. State adalah kondisi atau keadaan yang bisa terjadi pada obyek misalnya lampu dapat memiliki state nyala atau mati. 
+
+Di kehidupan nyata kita mungkin sering menemukan banyak obyek, akan tetapi beberapa di antaranya memiliki kemiripan. Mungkin ada banyak kucing yang ada di dunia ini. Semua sama-sama memiliki bentuk yang sama. Bila diperhatikan ada banyak jenis kucing, mulai dari warna, bentuk hingga ras. Dalam aturan orientasi obyek, dapat dikatakan bahwa jenis, warna dan ras kucing di seluruh belahan dunia ini adalah sebuah kelas instance dari obyek yang dikenali sebagai kucing.
+
+package com.dicoding.javafundamental.kelas;
+ 
+public class KucingAnggora {
+    // class body
+}
+Dalam aturan penulisan yang dianjurkan pada pemrograman Java, nama kelas diawali dengan huruf besar dan diikuti huruf kecil (contoh: Kucing). Bila suatu kelas terdiri dari banyak kata maka huruf pertama di setiap kata tersebut diberikan huruf besar (contoh: KucingAnggora).
+
+
+
+Constructor
+Constructor adalah method yang secara default sudah terbentuk ketika kelas dibuat. Ketika suatu kelas dibuat (instansiasi) maka konstruktor akan terpanggil juga. Constructor harus memiliki nama yang sama dengan nama kelasnya. Lalu apa kegunaan Constructor?
+
+Memberikan nilai awal terhadap suatu data atau obyek
+Mengalokasikan ruang sebuah kelas dalam obyek
+Terdapat dua tipe constructor pada Java:
+
+No-argument constructor, apabila kita tidak mendeklarasikan konstruktor dalam suatu kelas, kompiler Java akan membuat default constructor(tanpa parameter) dan pada body constructor tersebut kosong. Sementara jika kita mendeklarasikan konstruktor tanpa parameter , baik menuliskan kode pada body-nya atau tidak, maka itu bukan default constructor. Itu adalah no-argument constructor.
+Berikut ini adalah contoh no-argument constructorpada suatu kelas.
+package com.dicoding.javafundamental.kelas;
+ 
+public class KucingAnggora {
+ 
+    //ini adalah contoh no-argument constructor 
+    public KucingAnggora() {
+    }
+}
+
+Parameterized constructor, konstruktor yang memiliki parameter untuk menginisiasi atau memberikan nilai awal data dengan nilai yang kita tentukan.
+Berikut ini adalah contoh parameterized constructor pada suatu kelas.
+package com.dicoding.javafundamental.kelas;
+ 
+public class KucingAnggora {
+ 
+    String namaKucing;
+    int beratBadan;
+ 
+    //ini adalah contoh parameterized constructor
+    //dengan memberikan nilai awal data member nama_kucing dan berat_badan
+    //dengan parameter yang kita tentukan
+    public KucingAnggora(String nama, int berat) {
+        namaKucing = nama;
+        beratBadan = berat;
+    }
+}
